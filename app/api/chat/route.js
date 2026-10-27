@@ -34,7 +34,7 @@ async function callGemini({ key, model, system, contents, thinking }) {
   if (thinking === false) generationConfig.thinkingConfig = { thinkingBudget: 0 };
   const base = process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com';
   const res = await fetch(`${base}/v1beta/models/${model}:generateContent`, {
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(12000),
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
     body: JSON.stringify({
@@ -78,23 +78,34 @@ export async function POST(req) {
   }
 
   // New Google AI Studio projects can use gemini-3.8-flash or gemini-3.5-flash-lite on the free tier.
-  const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+  // If the first model is busy (503) or over its limit (429), the next one in the list is tried.
+  const models = [process.env.GEMINI_MODEL || 'gemini-3.8-flash']
+    .concat((process.env.GEMINI_FALLBACK_MODELS || 'gemini-3.5-flash-lite').split(','))
+    .map((m) => m.trim())
+    .filter((m, i, all) => m && all.indexOf(m) === i);
   const system = buildSystemPrompt(body.lang === 'si' ? 'si' : 'en');
 
-  try {
-    let reply = '';
+  let lastErr;
+  for (const model of models) {
     try {
-      reply = await callGemini({ key, model, system, contents, thinking: false });
-    } catch (e) {
-      // Some models do not accept the thinking setting (400); try once without it.
-      if (e.status !== 400) throw e;
-      reply = await callGemini({ key, model, system, contents });
+      let reply = '';
+      try {
+        reply = await callGemini({ key, model, system, contents, thinking: false });
+      } catch (e) {
+        // Some models do not accept the thinking setting (400); try once without it.
+        if (e.status !== 400) throw e;
+        reply = await callGemini({ key, model, system, contents });
+      }
+      if (reply) return Response.json({ reply, model });
+    } catch (err) {
+      lastErr = err;
+      console.error(`[chat] ${model}:`, err.message);
+      const busy = err.status === 429 || (err.status >= 500 && err.status < 600) || err.name === 'TimeoutError';
+      if (!busy) break; // a real setup problem (bad key, wrong model): no point trying others
     }
-    return Response.json({ reply });
-  } catch (err) {
-    console.error('[chat]', err.message);
-    // `code` is only the HTTP status (or "timeout"), so it is safe to show and helps debugging.
-    const code = err.status || (err.name === 'TimeoutError' ? 'timeout' : 'network');
-    return Response.json({ reply: '', fallback: 'ai-error', code, model });
   }
+
+  // `code` is only the HTTP status (or "timeout"), so it is safe to show and helps debugging.
+  const code = lastErr ? lastErr.status || (lastErr.name === 'TimeoutError' ? 'timeout' : 'network') : 'empty';
+  return Response.json({ reply: '', fallback: 'ai-error', code });
 }
