@@ -375,7 +375,7 @@ export function demoReply(text, lang, plans, care, money) {
       ? 'නියමයි, ඒ වගේ business එකකට website එකක් + WhatsApp booking assistant එකක් හොඳටම ගැලපෙනවා. Customers ලාට රෑ වුණත් වෙලාවක් book කරන්න පුළුවන්. WhatsApp එකෙන් කතා කරමුද?'
       : 'Great fit. For that kind of business, a website plus a WhatsApp booking assistant works well: customers can book a time even late at night. Shall we continue on WhatsApp?';
   }
-  if (has('hi', 'hello', 'hey', 'ආයුබෝවන්', 'හායි', 'හලෝ')) {
+  if (/^\s*(hi|hello|hey|hii|helo|ayubowan)\b/i.test(text) || has('ආයුබෝවන්', 'හායි', 'හලෝ')) {
     return si ? 'ආයුබෝවන්! ඔයාගේ business එක මොකද්ද? ඒකට ගැලපෙන දේ කියන්නම්.' : 'Hello! What kind of business do you run? I will suggest what fits.';
   }
   return si

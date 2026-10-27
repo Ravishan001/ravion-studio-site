@@ -34,6 +34,7 @@ async function callGemini({ key, model, system, contents, thinking }) {
   if (thinking === false) generationConfig.thinkingConfig = { thinkingBudget: 0 };
   const base = process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com';
   const res = await fetch(`${base}/v1beta/models/${model}:generateContent`, {
+    signal: AbortSignal.timeout(15000),
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
     body: JSON.stringify({
@@ -42,7 +43,11 @@ async function callGemini({ key, model, system, contents, thinking }) {
       generationConfig,
     }),
   });
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  if (!res.ok) {
+    const err = new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 300)}`);
+    err.status = res.status;
+    throw err;
+  }
   const data = await res.json();
   const text = (data.candidates?.[0]?.content?.parts || [])
     .map((p) => p.text || '')
@@ -81,12 +86,15 @@ export async function POST(req) {
     try {
       reply = await callGemini({ key, model, system, contents, thinking: false });
     } catch (e) {
-      // Some models do not accept the thinking setting; try once without it.
+      // Some models do not accept the thinking setting (400); try once without it.
+      if (e.status !== 400) throw e;
       reply = await callGemini({ key, model, system, contents });
     }
     return Response.json({ reply });
   } catch (err) {
     console.error('[chat]', err.message);
-    return Response.json({ reply: '', fallback: 'ai-error' });
+    // `code` is only the HTTP status (or "timeout"), so it is safe to show and helps debugging.
+    const code = err.status || (err.name === 'TimeoutError' ? 'timeout' : 'network');
+    return Response.json({ reply: '', fallback: 'ai-error', code, model });
   }
 }
