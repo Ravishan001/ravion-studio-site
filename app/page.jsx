@@ -105,11 +105,33 @@ function Chat({ t, lang, money }) {
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const logRef = useRef(null);
-  const lastQuestion = useRef('');
+  const [ref, setRef] = useState('');
+
+  useEffect(() => {
+    // Short code the visitor sends on WhatsApp so you can match their website chat.
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let code = 'RV-';
+    for (let i = 0; i < 5; i += 1) code += chars[Math.floor(Math.random() * chars.length)];
+    setRef(code);
+  }, []);
 
   useEffect(() => {
     setMsgs([{ from: 'bot', text: t.chat.greeting }]);
   }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  function saveChat(messages, event = 'message') {
+    if (!ref || messages.length < 2) return;
+    try {
+      fetch('/api/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ref, event, lang, messages, page: window.location.pathname }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch (e) {
+      // saving is best-effort; the chat keeps working
+    }
+  }
 
   useEffect(() => {
     const el = logRef.current;
@@ -119,7 +141,6 @@ function Chat({ t, lang, money }) {
   async function ask(text) {
     const q = text.trim();
     if (!q || busy) return;
-    lastQuestion.current = q;
     const next = [...msgs, { from: 'me', text: q }];
     setMsgs(next);
     setInput('');
@@ -140,9 +161,14 @@ function Chat({ t, lang, money }) {
       await new Promise((r) => setTimeout(r, 500));
       reply = demoReply(q, lang, PLANS, CARE_PLAN, money);
     }
-    setMsgs((m) => [...m, { from: 'bot', text: reply }]);
+    const all = [...next, { from: 'bot', text: reply }];
+    setMsgs(all);
     setBusy(false);
+    saveChat(all);
   }
+
+  const visitorTalked = msgs.some((m) => m.from === 'me');
+  const waText = visitorTalked && ref ? t.chat.waIntro.replace('{ref}', ref) : '';
 
   return (
     <div className="chat" role="region" aria-label={t.chat.title}>
@@ -193,9 +219,16 @@ function Chat({ t, lang, money }) {
           {t.chat.send}
         </button>
       </form>
-      <a className="handoff" href={waLink(lastQuestion.current)} target="_blank" rel="noopener">
+      <a
+        className="handoff"
+        href={waLink(waText)}
+        target="_blank"
+        rel="noopener"
+        onClick={() => saveChat(msgs, 'handoff')}
+      >
         <ChatIcon /> {t.chat.handoff}
       </a>
+      {visitorTalked && <p className="chat-privacy">{t.chat.privacy}</p>}
     </div>
   );
 }

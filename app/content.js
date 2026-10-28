@@ -24,6 +24,8 @@ export const T = {
       suggestions: ['How much is a website?', 'What can a WhatsApp bot do?', 'How long does it take?'],
       thinking: 'Typing…',
       handoff: 'Continue on WhatsApp',
+      waIntro: 'Hi Ravion Studio! I was chatting with the assistant on your website. Ref: {ref}',
+      privacy: 'We keep this chat so we can pick up where you left off on WhatsApp.',
     },
 
     services: {
@@ -187,6 +189,8 @@ export const T = {
       suggestions: ['Website එකක් කීයද?', 'WhatsApp bot එකක් මොනවද කරන්නේ?', 'කොච්චර කාලයක් යනවද?'],
       thinking: 'Type කරනවා…',
       handoff: 'WhatsApp එකෙන් කතා කරන්න',
+      waIntro: 'ආයුබෝවන් Ravion Studio! මම ඔයාලගේ website එකේ assistant එක්ක chat කළා. Ref: {ref}',
+      privacy: 'WhatsApp එකේදී ඉතුරු ටික කතා කරන්න මේ chat එක අපි save කරගන්නවා.',
     },
 
     services: {

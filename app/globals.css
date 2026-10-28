@@ -491,6 +491,13 @@ html[data-lang='si'] .hero h1 {
   min-height: 36px;
 }
 
+.chat-privacy {
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: -6px;
+}
+
 /* Sections */
 .section {
   padding: 96px 0;
