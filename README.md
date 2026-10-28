@@ -57,3 +57,18 @@ return `{ "reply": "..." }`.
 Add `NEXT_PUBLIC_CONTACT_WEBHOOK` the same way (n8n Webhook → Google Sheets
 → WhatsApp / email alert). Without it, the form opens WhatsApp with the
 message filled in.
+
+## See website chats yourself (Google Sheet + email)
+
+Every website chat is saved to a Google Sheet that only you can see. When a visitor
+taps "Continue on WhatsApp", their WhatsApp message carries a short code like
+`Ref: RV-7K3QD`, and you get an email with the full website chat for that code.
+
+1. Create a Google Sheet (e.g. "Ravion website chats").
+2. Extensions → Apps Script → paste `google-apps-script/chat-log.gs`.
+   Change `SECRET` to a long random word and check `OWNER_EMAIL`. Save.
+3. Choose the `setup` function → Run → allow the permissions.
+4. Deploy → New deployment → type Web app → Execute as: Me, Who has access: Anyone → Deploy.
+   Copy the Web app URL.
+5. In Vercel → Settings → Environment Variables add:
+   `CHAT_LOG_WEBHOOK` = the Web app URL, `CHAT_LOG_SECRET` = the same SECRET. Redeploy.

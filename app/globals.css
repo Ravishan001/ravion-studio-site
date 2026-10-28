@@ -649,6 +649,15 @@ input[type='range'] {
   height: 100%;
   object-fit: cover;
   object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.work-visual.has-image {
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 50, 0.08);
+}
+
+.work-tile a:hover .work-visual img {
+  transform: scale(1.03);
 }
 
 .work-visual span {

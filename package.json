@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "dependencies": {
     "next": "14.2.35",

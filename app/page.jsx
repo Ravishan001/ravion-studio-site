@@ -597,6 +597,40 @@ function Calculator({ t, currency, fmt }) {
   );
 }
 
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+function WorkTile({ p, t, lang }) {
+  // Uses public/work/<name>.jpg (made by `npm run screenshots`), or p.image if set.
+  const src = p.image || `/work/${slugify(p.name)}.jpg`;
+  const [failed, setFailed] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
+
+  return (
+    <li className="work-tile" style={{ '--tone': p.tone }}>
+      <a href={p.url} target="_blank" rel="noopener">
+        <div className={`work-visual ${failed ? '' : 'has-image'}`}>
+          {failed ? (
+            <span>{p.name}</span>
+          ) : (
+            <img ref={imgRef} src={src} alt={`${p.name} website, ${p.type[lang]}`} loading="lazy" onError={() => setFailed(true)} />
+          )}
+        </div>
+        <div className="work-meta">
+          <h3>{p.name}</h3>
+          <p>{p.type[lang]}</p>
+          <p className="work-kind">{p.kind === 'client' ? t.work.client : t.work.concept}</p>
+          <span className="work-open">{t.work.open}</span>
+        </div>
+      </a>
+    </li>
+  );
+}
+
 function Work({ t, lang }) {
   return (
     <section className="section" id="work">
@@ -605,19 +639,7 @@ function Work({ t, lang }) {
         <p className="muted narrow">{t.work.sub}</p>
         <ul className="work-grid">
           {PROJECTS.map((p) => (
-            <li key={p.name} className="work-tile" style={{ '--tone': p.tone }}>
-              <a href={p.url} target="_blank" rel="noopener">
-                <div className="work-visual">
-                  {p.image ? <img src={p.image} alt={`${p.name} website`} loading="lazy" /> : <span>{p.name}</span>}
-                </div>
-                <div className="work-meta">
-                  <h3>{p.name}</h3>
-                  <p>{p.type[lang]}</p>
-                  <p className="work-kind">{p.kind === 'client' ? t.work.client : t.work.concept}</p>
-                  <span className="work-open">{t.work.open}</span>
-                </div>
-              </a>
-            </li>
+            <WorkTile key={p.name} p={p} t={t} lang={lang} />
           ))}
         </ul>
       </div>
