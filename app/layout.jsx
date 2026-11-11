@@ -2,19 +2,19 @@ import './globals.css';
 
 export const metadata = {
   metadataBase: new URL('https://ravionstudio.com'),
-  title: 'Ravion Studio | Websites & AI Assistants',
+  title: 'Ravion Studio | Software, Apps, Websites & AI Agents',
   description:
-    'Ravion Studio builds websites, WhatsApp AI assistants, booking systems and automations for small businesses in Sri Lanka and abroad.',
+    'Ravion Studio is a software company in Sri Lanka building management systems, POS, mobile apps, websites, online stores and AI agents for businesses here and abroad.',
   icons: { icon: '/favicon.svg' },
   openGraph: {
-    title: 'Ravion Studio | Websites & AI Assistants',
-    description: 'Websites, WhatsApp AI assistants and automations for small businesses.',
+    title: 'Ravion Studio | Software, Apps, Websites & AI Agents',
+    description: 'Management systems, POS, mobile apps, websites and AI agents for businesses.',
     images: ['/og.png'],
     type: 'website',
   },
 };
 
-export const viewport = { themeColor: '#101632', width: 'device-width', initialScale: 1 };
+export const viewport = { themeColor: '#0b0f2a', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }) {
   return (
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Geist:wght@400;500;600&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
