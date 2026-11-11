@@ -26,7 +26,7 @@ export async function POST(req) {
     return Response.json({ ok: false }, { status: 400 });
   }
 
-  const ip = (req.headers.get('x-forwarded-for') || 'local').split(',')[0].trim();
+  const ip = (req.headers.get('cf-connecting-ip') || req.headers.get('x-forwarded-for') || 'local').split(',')[0].trim();
   if (limited(ip)) return Response.json({ ok: false }, { status: 429 });
 
   const ref = String(body.ref || '').slice(0, 20);

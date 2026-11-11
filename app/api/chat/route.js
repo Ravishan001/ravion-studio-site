@@ -67,7 +67,7 @@ export async function POST(req) {
     return Response.json({ reply: '', fallback: 'bad-request' }, { status: 400 });
   }
 
-  const ip = (req.headers.get('x-forwarded-for') || 'local').split(',')[0].trim();
+  const ip = (req.headers.get('cf-connecting-ip') || req.headers.get('x-forwarded-for') || 'local').split(',')[0].trim();
   if (limited(ip)) {
     return Response.json({ reply: '', fallback: 'rate-limit' }, { status: 429 });
   }

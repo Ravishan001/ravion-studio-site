@@ -72,3 +72,17 @@ taps "Continue on WhatsApp", their WhatsApp message carries a short code like
    Copy the Web app URL.
 5. In Vercel → Settings → Environment Variables add:
    `CHAT_LOG_WEBHOOK` = the Web app URL, `CHAT_LOG_SECRET` = the same SECRET. Redeploy.
+
+## Deploy on Cloudflare Workers
+
+The site runs on Cloudflare Workers through the OpenNext adapter (`@opennextjs/cloudflare`). Config lives in `wrangler.jsonc` and `open-next.config.ts`.
+
+- Local dev: `npm run dev` (normal Next.js)
+- Test in the Workers runtime: `npm run preview` (put local secrets in `.dev.vars`, which is ignored by git)
+- Deploy by hand: `npm run deploy` (needs `npx wrangler login` once)
+
+Automatic deploys: Cloudflare dashboard → Workers & Pages → Create → Import a repository → this repo.
+Build command `npx opennextjs-cloudflare build`, deploy command `npx opennextjs-cloudflare deploy`.
+
+Runtime secrets (Settings → Variables and Secrets): `GEMINI_API_KEY`, `CHAT_LOG_WEBHOOK`, `CHAT_LOG_SECRET`, optional `GEMINI_MODEL`, `GEMINI_FALLBACK_MODELS`.
+`NEXT_PUBLIC_*` values are read at build time, so add those under Settings → Build → Variables.
