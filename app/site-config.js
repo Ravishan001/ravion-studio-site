@@ -140,7 +140,7 @@ export const SOLUTIONS = [
 // Our own booking product, shown in the solutions grid.
 export const BOOKING_PRODUCT = {
   name: 'NopeQ',
-  url: 'https://nopeq.vercel.app',
+  url: 'https://nopeq.com',
   text: t(
     'Our own online booking platform for salons, studios, clinics and shops. Customers book without an app, you manage every branch from your phone.',
     'අපේම online booking platform එක, salons, studios, clinics, shops වලට. Customers ලා app එකක් නැතුව book කරනවා, ඔයා හැම branch එකක්ම phone එකෙන් manage කරනවා.'
@@ -265,7 +265,7 @@ export const SYSTEMS = [
   {
     id: 'nopeq',
     name: 'NopeQ',
-    url: 'https://nopeq.vercel.app',
+    url: 'https://nopeq.com',
     status: 'live',
     kind: t('Our product', 'අපේ product එක'),
     what: t('Booking platform for salons, studios, clinics and shops', 'Salons, studios, clinics, shops වලට booking platform එකක්'),
