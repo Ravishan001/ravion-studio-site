@@ -3505,3 +3505,74 @@ html[data-lang='si'] .hero h1 {
     linear-gradient(90deg, rgba(43, 26, 18, 0.96) 0%, rgba(43, 26, 18, 0.82) 45%, rgba(43, 26, 18, 0.35) 100%),
     var(--web-photo) center / cover no-repeat;
 }
+
+/* ───────── Footer privacy link + legal pages ───────── */
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px 24px;
+  margin-top: 24px;
+  padding-bottom: 88px;
+}
+.footer-bottom a {
+  color: inherit;
+  opacity: 0.8;
+}
+.footer-bottom a:hover {
+  opacity: 1;
+}
+.chat-privacy a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.legal {
+  background: var(--paper);
+  min-height: 100vh;
+  padding: 48px 16px 80px;
+}
+.legal-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: clamp(24px, 5vw, 56px);
+  line-height: 1.7;
+  color: var(--ink-soft, #3b4058);
+}
+.legal h1 {
+  font-family: var(--display);
+  font-size: clamp(30px, 5vw, 42px);
+  letter-spacing: -0.02em;
+  color: var(--night);
+  margin: 20px 0 4px;
+}
+.legal h2 {
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--night);
+  margin: 32px 0 8px;
+}
+.legal p,
+.legal li {
+  font-size: 16px;
+}
+.legal ul {
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+.legal a {
+  color: var(--sun-deep, #c2501a);
+}
+.legal-back {
+  font-weight: 600;
+  text-decoration: none;
+}
+.legal-updated {
+  font-size: 14px;
+  color: var(--ink-faint);
+}

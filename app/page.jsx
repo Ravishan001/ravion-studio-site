@@ -1528,7 +1528,11 @@ function ChatWidget({ t, lang, money }) {
         <a className="handoff" href={waLink(waText)} target="_blank" rel="noopener" onClick={() => saveChat(msgs, 'handoff')} tabIndex={open ? 0 : -1}>
           <Icon name="chat" size={16} /> {t.chat.handoff}
         </a>
-        {visitorTalked && <p className="chat-privacy">{t.chat.privacy}</p>}
+        {visitorTalked && (
+          <p className="chat-privacy">
+            {t.chat.privacy} <a href="/privacy" target="_blank" rel="noopener">{t.footer.privacy}</a>
+          </p>
+        )}
       </div>
     </>
   );
@@ -1623,6 +1627,7 @@ export default function Page() {
           <p>
             © {new Date().getFullYear()} {t.footer.rights}, {CONTACT.location}
           </p>
+          <a href="/privacy">{t.footer.privacy}</a>
         </div>
       </footer>
       <ChatWidget t={t} lang={lang} money={money} />

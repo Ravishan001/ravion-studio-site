@@ -192,6 +192,7 @@ export const T = {
     footer: {
       line: 'Software, apps, websites and AI agents for businesses.',
       rights: 'Ravion Studio',
+      privacy: 'Privacy policy',
     },
   },
 
@@ -385,6 +386,7 @@ export const T = {
     footer: {
       line: 'Businesses වලට software, apps, websites සහ AI agents.',
       rights: 'Ravion Studio',
+      privacy: 'Privacy policy',
     },
   },
 };
