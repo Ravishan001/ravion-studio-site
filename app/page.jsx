@@ -1543,9 +1543,8 @@ export default function Page() {
   const [est, setEst] = useState({ type: 'management', modules: ['inventory', 'customers'], users: 'u10', branches: 'b1', platforms: [], extras: [] });
 
   useEffect(() => {
-    const l = store('ravion-lang');
+    // Always open in English; Sinhala only when the visitor switches in this visit.
     const c = store('ravion-currency');
-    if (l === 'si' || l === 'en') setLangState(l);
     if (c === 'usd' || c === 'lkr') setCurrencyState(c);
   }, []);
 
@@ -1556,7 +1555,6 @@ export default function Page() {
 
   const setLang = (l) => {
     setLangState(l);
-    store('ravion-lang', l);
   };
   const setCurrency = (c) => {
     setCurrencyState(c);
