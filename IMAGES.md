@@ -5,65 +5,69 @@ The site finds them automatically on the next build. A slot with no file simply 
 
 Before adding, shrink each image at https://squoosh.app (WebP, quality 75, width shown below) so the site stays fast. Aim for under 300 KB per image.
 
-Tips for Gemini:
-- Paste one prompt at a time. If the result has text, logos or weird hands, say "remove all text and logos" or regenerate.
-- Keep the look consistent: if one image comes out well, say "same style as the previous image" for the next one.
-- These are illustrations of the kind of work we do, not photos of real clients. Don't add client names or logos.
+## How to get real-looking photos from Gemini
+
+Every prompt below asks for a real camera photo, not a 3D render or illustration.
+- Paste one prompt at a time. Set the aspect ratio in the tool if it has the option (AI Studio does); the prompt also says it.
+- If it looks fake, too shiny or "AI", reply: **"Make it look like an unedited real photo: natural skin and surface texture, real light, slight imperfections, no CGI look."**
+- If there is text, gibberish letters or logos, reply: **"Remove all text, letters and logos. Keep screens slightly out of focus."**
+- Screens are kept slightly blurred on purpose: AI can't write clean UI text, and blurred screens look natural in real photos.
+- Once one image looks right, start the next with: **"Same camera, lighting and colour grade as the previous photo."**
+- These show the kind of work we do, not real clients. Don't add client names or logos.
+
+Shared look for every photo: candid documentary-style photo, real location in Sri Lanka, natural light, shot on a full-frame camera with a 35mm lens at f/2, shallow depth of field, subtle film grain, warm natural colour grade with hints of sunset orange and deep navy.
 
 ---
 
 ## 1. "What we build" cards: `public/img/solutions/`
 
-Shared style for all six: premium 3D product render, soft studio lighting, rounded glossy devices, Ravion colours (deep navy #0b0f2a, sunset orange #F2762E, warm gold #F7B32B), clean minimal composition, no readable text, no logos, no people.
-
-### management.jpg (wide, 21:9, width 2000): dark card
-> A wide 21:9 premium 3D render on a deep navy background (#0b0f2a). A floating glass laptop and a tablet show an abstract business dashboard: bar charts, a line chart, data tables and stock cards made of simple shapes with no readable text. Around them, small floating glass tiles represent inventory boxes, a customer profile card, a staff calendar and an invoice, connected by thin glowing gold lines to a central database cylinder. Warm sunset-orange (#F2762E) rim light from the bottom right, soft gold (#F7B32B) highlights, subtle depth of field, lots of empty dark space on the left third. Minimal, modern, high-end tech advertising style. No text, no logos, no people.
+### management.jpg (wide, 21:9, width 2000): goes on a dark card, so keep it dark
+> Photorealistic wide 21:9 photograph, not a 3D render. A real business owner's desk in a small office in Sri Lanka in the evening. An open laptop and a tablet show a business dashboard with charts and tables, the screens slightly out of focus so no text is readable. A cup of Ceylon tea, a notebook and a small stack of invoices on a dark wooden desk. The room is dark navy blue with a warm orange desk lamp glow from the right. Most of the light is on the right side; the left third of the frame is dark, empty shadow. Shot on a full-frame camera, 35mm lens, f/2, natural low light, subtle film grain, real textures, candid and unstaged. No people's faces, no readable text, no logos, no CGI look.
 
 ### pos.jpg (16:9, width 1600)
-> A 16:9 premium 3D render of a modern point-of-sale setup on a light off-white background (#f3f4f8): a sleek white touchscreen POS terminal showing an abstract product grid of coloured tiles, a small receipt printer with a curled receipt, a barcode scanner and a card payment terminal on a smooth counter. Accents in sunset orange (#F2762E) and warm gold (#F7B32B), soft shadows, studio lighting, clean and minimal. No readable text, no logos, no people.
+> Photorealistic 16:9 photograph, not a 3D render. The checkout counter of a modern small grocery shop in Sri Lanka. A cashier's hands scan a product with a handheld barcode scanner next to a white touchscreen POS terminal, a small receipt printer pushing out a receipt, and a card payment machine on the counter. Shelves of goods softly blurred behind. Warm natural daylight, real wear on the counter, slight imperfections. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. The POS screen slightly out of focus, no readable text, no brand logos, no faces.
 
 ### mobile.jpg (16:9, width 1600)
-> A 16:9 premium 3D render of two modern smartphones floating at slight angles on a light off-white background (#f3f4f8), one Android-style and one iPhone-style. Their screens show an abstract app interface made of rounded cards, a progress ring and a bottom navigation bar, in navy (#0b0f2a) and sunset orange (#F2762E). Small floating 3D icons around them: a bell notification, a calendar, a shopping bag and a chart. Soft studio light, gentle shadows, minimal and premium. No readable text, no logos, no people.
+> Photorealistic 16:9 photograph, not a 3D render. Close-up of a young Sri Lankan person's hands holding a modern smartphone, tapping an app with colourful rounded cards on the screen, sitting at an outdoor café table in Colombo. A second phone and a cup of tea on the table. Warm late-afternoon sunlight, soft orange tones, real skin texture. Shot on a full-frame camera, 50mm lens, f/1.8, shallow depth of field, subtle film grain. Screen content slightly out of focus, no readable text, no logos, face not shown.
 
 ### website.jpg (16:9, width 1600)
-> A 16:9 premium 3D render of a modern website shown on a laptop, a tablet and a phone side by side (responsive design), on a light off-white background (#f3f4f8). The screens show an abstract landing page: a large hero image block, buttons and product cards made of simple shapes, in navy (#0b0f2a), sunset orange (#F2762E) and gold (#F7B32B). A small floating shopping cart icon and a search bar element. Soft studio lighting, clean shadows, minimal premium style. No readable text, no logos, no people.
+> Photorealistic 16:9 photograph, not a 3D render. A bright home office desk in Sri Lanka with a laptop, a tablet and a smartphone all showing the same modern business website (a large hero photo, buttons and product cards), screens slightly out of focus so no text is readable. A plant, a coffee mug and a window with tropical greenery softly blurred behind. Soft natural daylight, warm tones, real textures. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No people, no readable text, no logos.
 
 ### ai.jpg (16:9, width 1600)
-> A 16:9 premium 3D render of an AI assistant concept on a light off-white background (#f3f4f8): a glowing glass orb with three small gold nodes rising above it like sun rays, beside a smartphone showing a chat conversation made of speech bubbles (no readable text). Floating chat bubbles, a small calendar booking card and a check-mark badge around it. Colours: navy (#0b0f2a), sunset orange (#F2762E), warm gold (#F7B32B). Soft studio light, subtle glow, minimal and premium. No text, no logos, no robots with faces, no people.
+> Photorealistic 16:9 photograph, not a 3D render. A smartphone resting on the reception counter of a stylish small business in Sri Lanka, its screen showing a WhatsApp-style chat with speech bubbles, slightly out of focus so no text is readable. The screen gives a soft glow. Behind it, softly blurred, a receptionist helps a customer. Warm evening light with orange and deep navy tones. Shot on a full-frame camera, 50mm lens, f/1.8, shallow depth of field, subtle film grain, real textures. No readable text, no logos, no robots, faces out of focus.
 
 ### automation.jpg (16:9, width 1600)
-> A 16:9 premium 3D render of business automation on a light off-white background (#f3f4f8): rounded glass app tiles (a spreadsheet grid, an envelope, a chat bubble, a calendar, a document) connected by smooth glowing orange (#F2762E) pipelines with small gold (#F7B32B) light pulses travelling between them, like a clean workflow diagram floating in space. Navy (#0b0f2a) accents, soft shadows, minimal and premium. No readable text, no logos, no people.
+> Photorealistic 16:9 photograph, not a 3D render. An office desk in Sri Lanka with two monitors: one shows a spreadsheet, the other a workflow of connected boxes and lines, both slightly out of focus so no text is readable. A phone lights up with a notification beside the keyboard. A person's hand rests on the mouse; the rest of the office is softly blurred behind. Calm morning light from a window, warm tones, real textures. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, no faces.
 
 ---
 
 ## 2. "Built for your kind of business": `public/img/industries/`
 
-Shared style for all eight: realistic, warm, natural light photo of a small business in Sri Lanka, modern and tidy, a screen or device naturally in use, shallow depth of field, soft warm colour grade. People can appear but not as the main subject; no readable text, no brand logos.
-Use 4:3, width 1200.
+All 4:3, width 1200. Real small businesses in Sri Lanka, a device naturally in use, people present but not the main subject.
 
 ### retail.jpg
-> A realistic 4:3 photo of a modern small supermarket and pharmacy counter in Sri Lanka. A cashier's hands scan a product with a barcode scanner next to a touchscreen POS terminal; neat shelves of packaged goods and medicine boxes in soft focus behind. Warm natural light, clean and modern, shallow depth of field. No readable text, no brand logos, no visible faces.
+> Photorealistic 4:3 photograph, not a 3D render. Inside a modern small supermarket and pharmacy in Sri Lanka. At the counter, a cashier's hands scan a product next to a touchscreen POS terminal. Neat shelves of packaged goods and medicine boxes softly blurred behind. Natural daylight mixed with shop lights, real everyday clutter, slight imperfections. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. Screen slightly out of focus, no readable text, no brand logos, faces not visible.
 
 ### food.jpg
-> A realistic 4:3 photo inside a stylish small café-restaurant in Sri Lanka. A waiter takes an order on a tablet near the counter while a kitchen screen shows order tickets as coloured cards in the background; plates of food and cups of Ceylon tea on wooden tables. Warm evening light, cosy and modern, shallow depth of field. No readable text, no logos, faces turned away or out of focus.
+> Photorealistic 4:3 photograph, not a 3D render. Inside a cosy small café-restaurant in Sri Lanka in the evening. A waiter in an apron takes an order on a tablet near the counter; plates of rice and curry and cups of Ceylon tea on wooden tables; a kitchen order screen softly blurred in the background. Warm tungsten light, real textures, lived-in atmosphere. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, faces turned away or out of focus.
 
 ### salon.jpg
-> A realistic 4:3 photo of a modern, elegant hair salon and spa in Sri Lanka. At the reception desk, a smartphone in the foreground shows a booking calendar with time slots as coloured blocks; styling chairs, mirrors and plants in soft focus behind. Warm soft lighting with gold accents, calm and premium. No readable text, no logos, no visible faces.
+> Photorealistic 4:3 photograph, not a 3D render. The reception desk of a modern hair salon in Sri Lanka. In the foreground, a smartphone on the desk shows a booking calendar with coloured time slots, slightly out of focus. Styling chairs, mirrors, hair products and plants softly blurred behind, a stylist working in the background. Warm soft lighting with gold tones. Shot on a full-frame camera, 50mm lens, f/1.8, shallow depth of field, subtle film grain, real textures. No readable text, no logos, faces not visible.
 
 ### clinic.jpg
-> A realistic 4:3 photo of a clean, modern private clinic reception in Sri Lanka. A receptionist's hands work on a computer showing an appointment schedule as coloured blocks; a calm waiting area with chairs and plants in soft focus. Bright, soft, trustworthy lighting with white and light-blue tones. No readable text, no logos, no visible faces, no medical procedures.
+> Photorealistic 4:3 photograph, not a 3D render. The reception of a clean, modern private medical clinic (channelling centre) in Sri Lanka. A receptionist's hands at a computer showing an appointment schedule, slightly out of focus. A calm waiting area with chairs and a plant softly blurred behind. Bright, soft daylight, white and light-blue tones, real textures. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, no visible faces, no medical procedures.
 
 ### gym.jpg
-> A realistic 4:3 photo of a modern gym in Sri Lanka. In the foreground, a hand holds a smartphone showing a workout plan with progress rings and exercise cards; weights, racks and treadmills in soft focus behind. Moody warm lighting with orange highlights, energetic but clean. No readable text, no logos, no visible faces.
+> Photorealistic 4:3 photograph, not a 3D render. Inside a real gym in Sri Lanka. In the foreground, a hand holds a smartphone showing a workout plan with progress rings, slightly out of focus. Dumbbells, a squat rack and treadmills softly blurred behind, a person training in the background. Moody warm light with orange highlights, real sweat and wear, gritty texture. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, faces not visible.
 
 ### office.jpg
-> A realistic 4:3 photo of a bright, modern small office in Sri Lanka. A team member at a desk with a laptop showing a staff dashboard (attendance cards and a calendar as simple coloured blocks), a colleague walking past in soft focus, plants and natural window light. Professional, calm and modern. No readable text, no logos, faces out of focus.
+> Photorealistic 4:3 photograph, not a 3D render. A bright, modern small office in Sri Lanka. A staff member at a desk with a laptop showing a dashboard with calendar and attendance cards, slightly out of focus. A colleague walks past in soft focus; plants, a whiteboard and window light in the background. Natural daylight, real everyday office clutter. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, faces out of focus.
 
 ### warehouse.jpg
-> A realistic 4:3 photo inside a tidy wholesale warehouse in Sri Lanka. A worker's hands hold a rugged tablet showing stock levels as simple bar charts, with tall shelves of labelled cardboard boxes and a pallet in soft focus behind. Warm industrial lighting, organised and modern. No readable text, no logos, no visible faces.
+> Photorealistic 4:3 photograph, not a 3D render. Inside a wholesale warehouse in Sri Lanka. A worker's hands hold a rugged tablet showing stock bar charts, slightly out of focus. Tall metal shelves of cardboard boxes, a pallet and a hand trolley softly blurred behind. Warm industrial light with dust in the air, real wear and textures. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, no visible faces.
 
 ### education.jpg
-> A realistic 4:3 photo of a modern tuition class in Sri Lanka. Students at desks in soft focus, a teacher near a large screen, and in the foreground a tablet showing a class timetable and payment list as simple coloured blocks. Bright, friendly natural light, modern and clean. No readable text, no logos, no clear faces of children.
+> Photorealistic 4:3 photograph, not a 3D render. A modern tuition class in Sri Lanka. In the foreground, a tablet on the teacher's desk shows a class timetable and fee list, slightly out of focus. Students at desks and a teacher near a whiteboard softly blurred behind. Bright, friendly daylight from windows, real classroom textures. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No readable text, no logos, no clear faces of children.
 
 ---
 
