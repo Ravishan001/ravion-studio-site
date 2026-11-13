@@ -3429,3 +3429,73 @@ html[data-lang='si'] .hero h1 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ───────── Photo slots (show only when a file exists in public/img/...) ───────── */
+.sol-media {
+  margin: -14px -14px 6px;
+  border-radius: calc(var(--r-xl) - 12px);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--paper);
+}
+.sol-wide .sol-media {
+  aspect-ratio: 21 / 8;
+}
+.sol-dark .sol-media {
+  background: rgba(255, 255, 255, 0.06);
+}
+.sol-media img,
+.ind-photo img,
+.system-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ind-panel.has-photo {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr) minmax(0, 0.7fr);
+  align-items: stretch;
+}
+.ind-photo {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  min-height: 260px;
+  background: var(--white);
+}
+
+.system-shot {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.system-shot img {
+  object-position: top center;
+}
+
+@media (max-width: 1024px) {
+  .ind-panel.has-photo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ind-photo {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .sol-wide .sol-media {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+@media (max-width: 720px) {
+  .sol-media {
+    margin: -8px -8px 4px;
+    border-radius: calc(var(--r-lg) - 8px);
+  }
+  .sol-wide .sol-media {
+    aspect-ratio: 16 / 9;
+  }
+}
+.ind-panel.has-photo .ind-list {
+  grid-template-columns: minmax(0, 1fr);
+}

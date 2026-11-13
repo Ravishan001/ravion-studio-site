@@ -14,6 +14,19 @@ import {
   INDUSTRIES,
 } from './site-config';
 
+// Photos added to public/img/... (see next.config.mjs). Returns the file for a slot, or null.
+const SITE_IMAGES = (() => {
+  try {
+    return JSON.parse(process.env.SITE_IMAGES || '[]');
+  } catch {
+    return [];
+  }
+})();
+function imageFor(folder, id) {
+  const re = new RegExp(`^/img/${folder}/${id}\\.(jpe?g|png|webp|avif)$`, 'i');
+  return SITE_IMAGES.find((f) => re.test(f)) || null;
+}
+
 const waLink = (text) => `https://wa.me/${CONTACT.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
 const L = (v, lang) => (v && typeof v === 'object' && 'en' in v ? v[lang] : v);
 
@@ -453,8 +466,13 @@ function Solutions({ t, lang, money, onEstimate, onPlans }) {
         </div>
         <div className="bento">
           {SOLUTIONS.map((s, i) => (
-            <article key={s.id} className={`sol sol-${s.id} ${i === 0 ? 'sol-wide sol-dark' : ''}`}>
-              {i === 0 && (
+            <article key={s.id} className={`sol sol-${s.id} ${i === 0 ? 'sol-wide sol-dark' : ''} ${imageFor('solutions', s.id) ? 'has-media' : ''}`}>
+              {imageFor('solutions', s.id) && (
+                <div className="sol-media">
+                  <img src={imageFor('solutions', s.id)} alt="" loading="lazy" />
+                </div>
+              )}
+              {i === 0 && !imageFor('solutions', s.id) && (
                 <svg className="sol-deco" viewBox="0 0 400 220" aria-hidden="true">
                   <g fill="none" stroke="#F7B32B" strokeOpacity="0.22" strokeWidth="1.2">
                     <path d="M40 220 A160 160 0 0 1 360 220" />
@@ -569,7 +587,18 @@ function Industries({ t, lang, money, onEstimate }) {
             </button>
           ))}
         </div>
-        <div className="ind-panel" id="ind-panel" role="tabpanel" aria-labelledby={`ind-${ind.id}`} key={ind.id}>
+        <div
+          className={`ind-panel ${imageFor('industries', ind.id) ? 'has-photo' : ''}`}
+          id="ind-panel"
+          role="tabpanel"
+          aria-labelledby={`ind-${ind.id}`}
+          key={ind.id}
+        >
+          {imageFor('industries', ind.id) && (
+            <div className="ind-photo">
+              <img src={imageFor('industries', ind.id)} alt={L(ind.name, lang)} loading="lazy" />
+            </div>
+          )}
           <div>
             <h3>{t.industries.usually}</h3>
             <ul className="ind-list">
@@ -786,6 +815,11 @@ function Work({ t, lang }) {
                 <p className="system-name">{L(s.name, lang)}</p>
                 <p className="system-what">{L(s.what, lang)}</p>
               </div>
+              {imageFor('systems', s.id) && (
+                <div className="system-shot">
+                  <img src={imageFor('systems', s.id)} alt={`${L(s.name, lang)} screenshot`} loading="lazy" />
+                </div>
+              )}
               <div className="system-body">
                 <p className="system-kind">{L(s.kind, lang)}</p>
                 <p>{L(s.detail, lang)}</p>
