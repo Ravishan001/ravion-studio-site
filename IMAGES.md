@@ -19,6 +19,40 @@ Shared look for every photo: candid documentary-style photo, real location in Sr
 
 ---
 
+## 0. Hero product window (top of the page): `public/img/hero/`
+
+These are small, so width 600 is enough (web-hero: 1400).
+
+### POS screen products (4:3, width 600)
+
+Shared look: realistic product photo for a POS menu, the item centred with space around it (it gets cropped to a wide tile), plain warm off-white background, soft daylight from the left, gentle shadow, slight 3/4 angle from above. Shot on a full-frame camera, 50mm lens, f/4, real textures, no text, no logos, no hands. After the first one, start each next prompt with "Same background, light and angle as the previous photo."
+
+- `pos-milk-tea.webp`
+  > Photorealistic 4:3 product photo, not a 3D render. A glass of Sri Lankan milk tea (light caramel colour, a little foam on top) on a small saucer, centred on a plain warm off-white surface with lots of empty space around it. Soft daylight from the left, gentle shadow, slight 3/4 angle from above. Full-frame camera, 50mm lens, f/4, real textures. No text, no logos, no hands.
+- `pos-fish-bun.webp`
+  > Photorealistic 4:3 product photo, not a 3D render. Two Sri Lankan triangular fish buns (golden-brown glazed bread) on a small white plate, centred on a plain warm off-white surface with lots of empty space around them. Soft daylight from the left, gentle shadow, slight 3/4 angle from above. Full-frame camera, 50mm lens, f/4, real textures. No text, no logos, no hands.
+- `pos-chocolate-cake.webp`
+  > Photorealistic 4:3 product photo, not a 3D render. A slice of rich chocolate cake with glossy chocolate icing on a small white plate, centred on a plain warm off-white surface with lots of empty space around it. Soft daylight from the left, gentle shadow, slight 3/4 angle from above. Full-frame camera, 50mm lens, f/4, real textures. No text, no logos, no hands.
+- `pos-iced-coffee.webp`
+  > Photorealistic 4:3 product photo, not a 3D render. A tall glass of iced coffee with milk swirling into it and ice cubes, condensation on the glass, centred on a plain warm off-white surface with lots of empty space around it. Soft daylight from the left, gentle shadow, slight 3/4 angle from above. Full-frame camera, 50mm lens, f/4, real textures. No text, no logos, no straws with branding, no hands.
+- `pos-egg-roll.webp`
+  > Photorealistic 4:3 product photo, not a 3D render. Two Sri Lankan egg rolls (golden, crispy, breadcrumb-coated, one cut in half showing egg and filling) on a small white plate, centred on a plain warm off-white surface with lots of empty space around them. Soft daylight from the left, gentle shadow, slight 3/4 angle from above. Full-frame camera, 50mm lens, f/4, real textures. No text, no logos, no hands.
+- `pos-lime-juice.webp`
+  > Photorealistic 4:3 product photo, not a 3D render. A glass of fresh lime juice, pale green, with ice and a slice of lime on the rim, centred on a plain warm off-white surface with lots of empty space around it. Soft daylight from the left, gentle shadow, slight 3/4 angle from above. Full-frame camera, 50mm lens, f/4, real textures. No text, no logos, no hands.
+
+### Website screen: "Hearth Bakery" example site
+
+- `web-hero.webp` (16:9, width 1400): the dark background behind "Fresh bakes, delivered across Kandy." Text sits on the left, so keep the left side dark and empty.
+  > Photorealistic 16:9 photograph, not a 3D render. Inside a cosy artisan bakery in Sri Lanka in the early morning: on the right half of the frame, a wooden counter with fresh bread loaves, buns and cakes, warm golden light from an oven glow and hanging bulbs. The left half of the frame is dark warm-brown shadow with nothing in it. Moody, warm and inviting, chocolate-brown tones. Shot on a full-frame camera, 35mm lens, f/2, shallow depth of field, subtle film grain. No people, no text, no logos.
+- `web-cake.webp` (4:3, width 600)
+  > Photorealistic 4:3 close-up food photo, not a 3D render. A whole Sri Lankan butter cake with a golden top, one slice cut out, on a wooden board, centred with some space around it. Warm natural light, rustic bakery feel, brown and golden tones. Full-frame camera, 50mm lens, f/2.8, real textures. No text, no logos, no hands.
+- `web-bread.webp` (4:3, width 600)
+  > Photorealistic 4:3 close-up food photo, not a 3D render. Freshly baked crusty bread loaves and soft buns in a woven basket on a wooden counter, centred with some space around them. Warm natural light, a little flour dust, rustic bakery feel, brown and golden tones. Full-frame camera, 50mm lens, f/2.8, real textures. No text, no logos, no hands.
+- `web-pastry.webp` (4:3, width 600)
+  > Photorealistic 4:3 close-up food photo, not a 3D render. A small tray of cupcakes with cream-coloured frosting and a few flaky pastries on a wooden counter, centred with some space around them. Warm natural light, rustic bakery feel, cream and golden tones. Full-frame camera, 50mm lens, f/2.8, real textures. No text, no logos, no hands.
+
+---
+
 ## 1. "What we build" cards: `public/img/solutions/`
 
 ### management.jpg (wide, 21:9, width 2000): goes on a dark card, so keep it dark

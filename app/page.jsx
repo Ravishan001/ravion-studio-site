@@ -27,6 +27,9 @@ function imageFor(folder, id) {
   return SITE_IMAGES.find((f) => re.test(f)) || null;
 }
 
+const photoBg = (src, color) =>
+  src ? { background: `${color} url(${src}) center / cover no-repeat` } : { background: color };
+
 const waLink = (text) => `https://wa.me/${CONTACT.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
 const L = (v, lang) => (v && typeof v === 'object' && 'en' in v ? v[lang] : v);
 
@@ -147,8 +150,9 @@ function Header({ t, lang, setLang }) {
 
 function ScreenPOS() {
   const items = [
-    ['Milk tea', 180, '#f2c48d'], ['Fish bun', 150, '#e9a26b'], ['Chocolate cake', 950, '#7a4a3a'],
-    ['Iced coffee', 420, '#b98b67'], ['Egg roll', 200, '#f0b44c'], ['Lime juice', 250, '#a9cf6b'],
+    ['Milk tea', 180, '#f2c48d', 'pos-milk-tea'], ['Fish bun', 150, '#e9a26b', 'pos-fish-bun'],
+    ['Chocolate cake', 950, '#7a4a3a', 'pos-chocolate-cake'], ['Iced coffee', 420, '#b98b67', 'pos-iced-coffee'],
+    ['Egg roll', 200, '#f0b44c', 'pos-egg-roll'], ['Lime juice', 250, '#a9cf6b', 'pos-lime-juice'],
   ];
   return (
     <div className="scr scr-pos">
@@ -160,9 +164,9 @@ function ScreenPOS() {
           <span className="mini-chip">Snacks</span>
         </div>
         <div className="pos-grid">
-          {items.map(([n, p, c]) => (
+          {items.map(([n, p, c, img]) => (
             <div key={n} className="pos-item">
-              <span className="pos-swatch" style={{ background: c }} />
+              <span className="pos-swatch" style={photoBg(imageFor('hero', img), c)} />
               <span className="pos-name">{n}</span>
               <span className="pos-price">Rs. {p}</span>
             </div>
@@ -307,16 +311,19 @@ function ScreenWebsite() {
     <div className="scr scr-web">
       <div className="web-browser">
         <div className="web-bar"><span className="web-url">yourbusiness.lk</span></div>
-        <div className="web-page">
+        <div
+          className={`web-page ${imageFor('hero', 'web-hero') ? 'has-photo' : ''}`}
+          style={imageFor('hero', 'web-hero') ? { '--web-photo': `url(${imageFor('hero', 'web-hero')})` } : undefined}
+        >
           <div className="web-nav"><b>Hearth Bakery</b><span>Menu</span><span>Order</span><span>Visit</span></div>
           <div className="web-hero">
             <p className="web-h">Fresh bakes, delivered across Kandy.</p>
             <span className="mini-btn mini-btn-sun">Order on WhatsApp</span>
           </div>
           <div className="web-cards">
-            <span style={{ background: '#e7b27a' }} />
-            <span style={{ background: '#c9774a' }} />
-            <span style={{ background: '#f1d3a1' }} />
+            <span style={photoBg(imageFor('hero', 'web-cake'), '#e7b27a')} />
+            <span style={photoBg(imageFor('hero', 'web-bread'), '#c9774a')} />
+            <span style={photoBg(imageFor('hero', 'web-pastry'), '#f1d3a1')} />
           </div>
         </div>
       </div>
@@ -325,7 +332,7 @@ function ScreenWebsite() {
           <b>Hearth Bakery</b>
           <p>Fresh bakes, delivered across Kandy.</p>
           <span className="mini-btn mini-btn-sun">Order</span>
-          <span className="web-phone-card" />
+          <span className="web-phone-card" style={photoBg(imageFor('hero', 'web-cake'), '#e7b27a')} />
         </div>
       </div>
     </div>

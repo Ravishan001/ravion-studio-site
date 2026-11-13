@@ -3499,3 +3499,8 @@ html[data-lang='si'] .hero h1 {
 .ind-panel.has-photo .ind-list {
   grid-template-columns: minmax(0, 1fr);
 }
+.web-page.has-photo {
+  background:
+    linear-gradient(90deg, rgba(43, 26, 18, 0.96) 0%, rgba(43, 26, 18, 0.82) 45%, rgba(43, 26, 18, 0.35) 100%),
+    var(--web-photo) center / cover no-repeat;
+}

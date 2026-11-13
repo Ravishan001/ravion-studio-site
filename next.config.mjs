@@ -3,7 +3,7 @@ import path from 'node:path';
 
 // Photos in public/img/<folder>/ are picked up automatically at build time.
 // A slot only shows when its file exists, so missing photos never leave empty boxes.
-const IMAGE_FOLDERS = ['img/solutions', 'img/industries', 'img/systems'];
+const IMAGE_FOLDERS = ['img/hero', 'img/solutions', 'img/industries', 'img/systems'];
 function listImages() {
   const found = [];
   for (const dir of IMAGE_FOLDERS) {
