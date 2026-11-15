@@ -111,6 +111,7 @@ function Header({ t, lang, setLang }) {
     ['pricing', t.nav.pricing],
     ['estimate', t.nav.estimate],
     ['faq', t.nav.faq],
+    ['blog', t.nav.blog, '/blog'], // articles from the SEO Engine (ravionstudio.com/blog)
     ['contact', t.nav.contact],
   ];
   return (
@@ -123,8 +124,8 @@ function Header({ t, lang, setLang }) {
           </span>
         </a>
         <nav className="nav" aria-label="Main">
-          {links.map(([id, label]) => (
-            <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
+          {links.map(([id, label, href]) => (
+            <a key={id} href={href || `#${id}`} onClick={() => setOpen(false)}>
               {label}
             </a>
           ))}
@@ -1616,6 +1617,7 @@ export default function Page() {
             <a href="#work">{t.nav.work}</a>
             <a href="#pricing">{t.nav.pricing}</a>
             <a href="#estimate">{t.nav.estimate}</a>
+            <a href="/blog">{t.nav.blog}</a>
             <a href="#contact">{t.nav.contact}</a>
           </nav>
           <div className="footer-contact">

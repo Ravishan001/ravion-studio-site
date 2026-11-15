@@ -3,7 +3,7 @@
 
 export const T = {
   en: {
-    nav: { solutions: 'Solutions', work: 'Work', pricing: 'Pricing', estimate: 'Estimate', faq: 'FAQ', contact: 'Contact' },
+    nav: { solutions: 'Solutions', work: 'Work', pricing: 'Pricing', estimate: 'Estimate', faq: 'FAQ', blog: 'Blog', contact: 'Contact' },
     langLabel: 'සිංහල',
     langAria: 'Switch to Sinhala',
     cta: 'Get a quote',
@@ -197,7 +197,7 @@ export const T = {
   },
 
   si: {
-    nav: { solutions: 'සේවා', work: 'වැඩ', pricing: 'මිල', estimate: 'Estimate', faq: 'ප්‍රශ්න', contact: 'සම්බන්ධ වෙන්න' },
+    nav: { solutions: 'සේවා', work: 'වැඩ', pricing: 'මිල', estimate: 'Estimate', faq: 'ප්‍රශ්න', blog: 'Blog', contact: 'සම්බන්ධ වෙන්න' },
     langLabel: 'English',
     langAria: 'Switch to English',
     cta: 'Quote එකක් ගන්න',
