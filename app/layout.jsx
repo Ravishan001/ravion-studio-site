@@ -1,4 +1,5 @@
 import './globals.css';
+import Script from 'next/script';
 import { CONTACT } from './site-config';
 
 const ORG = {
@@ -46,7 +47,11 @@ export default function RootLayout({ children }) {
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG) }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Ravion SEO Engine analytics — cookie-free views, visitors & clicks (see SEO Engine → Analytics) */}
+        <Script src="https://seo-engine.ravionstudio1.workers.dev/a/s.js" data-site="ravion-studio" strategy="afterInteractive" />
+      </body>
     </html>
   );
 }
