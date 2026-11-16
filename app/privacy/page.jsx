@@ -6,7 +6,7 @@ export const metadata = {
   alternates: { canonical: '/privacy' },
 };
 
-const UPDATED = '13 November 2026';
+const UPDATED = '17 November 2026';
 
 export default function Privacy() {
   return (
@@ -43,6 +43,11 @@ export default function Privacy() {
             secure and stop abuse (for example, limiting how many chat messages can be sent per minute).
           </li>
           <li>
+            <b>Visit statistics.</b> We count visits with our own cookie-free analytics: the page you view, how long you stay, which
+            links you click, the site that sent you, your country and device type. You get an anonymous ID that changes every day, so
+            we can&apos;t recognise you across days, and we don&apos;t store your IP address with these statistics.
+          </li>
+          <li>
             <b>Your settings.</b> Your currency choice (LKR or USD) is stored in your own browser so the site remembers it. We don&apos;t
             use advertising or tracking cookies.
           </li>
@@ -66,7 +71,7 @@ export default function Privacy() {
             <b>Google Workspace (Sheets, Apps Script, Gmail)</b> stores chat logs and sends us email alerts.
           </li>
           <li>
-            <b>Cloudflare</b> hosts and protects this website.
+            <b>Cloudflare</b> hosts and protects this website and our blog, and runs our visit statistics.
           </li>
           <li>
             <b>WhatsApp (Meta)</b> carries messages you choose to send us on WhatsApp.

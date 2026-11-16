@@ -7,7 +7,7 @@ const ORG = {
   '@type': 'ProfessionalService',
   name: 'Ravion Studio',
   url: 'https://www.ravionstudio.com',
-  logo: 'https://www.ravionstudio.com/favicon.svg',
+  logo: 'https://www.ravionstudio.com/logo-512.png',
   image: 'https://www.ravionstudio.com/og.png',
   description:
     'Software company in Sri Lanka building management systems, POS, mobile apps, websites, online stores and AI agents for businesses.',
@@ -19,7 +19,7 @@ const ORG = {
 };
 
 export const metadata = {
-  metadataBase: new URL('https://ravionstudio.com'),
+  metadataBase: new URL('https://www.ravionstudio.com'),
   title: 'Ravion Studio | Software, Apps, Websites & AI Agents',
   description:
     'Ravion Studio is a software company in Sri Lanka building management systems, POS, mobile apps, websites, online stores and AI agents for businesses here and abroad.',
