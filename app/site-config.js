@@ -290,14 +290,14 @@ export const SYSTEMS = [
   },
   {
     id: 'gym',
-    name: t('Gym management platform', 'Gym management platform'),
-    url: '',
-    status: 'building',
-    kind: t('In development', 'හදමින් පවතී'),
-    what: t('Member app plus trainer dashboard', 'Member app එකක් සහ trainer dashboard එකක්'),
+    name: 'RepFlint',
+    url: 'https://repflint.com',
+    status: 'live',
+    kind: t('Our product', 'අපේ product එක'),
+    what: t('Gym management app for gyms of any size', 'ඕනම gym එකකට gym management app එකක්'),
     detail: t(
-      'Workout plans, member payments, coaches and multiple branches, themed automatically to each gym.',
-      'Workout plans, member payments, coaches, branches කීපයක්. හැම gym එකටම ගැලපෙන theme එක ඉබේම.'
+      'Each gym gets its own member app with its logo and colours, and an owner dashboard for members, payments, QR check-ins, workout plans, classes and branches. Free to start.',
+      'හැම gym එකකටම එයාලගේ logo සහ පාට එක්ක member app එකක්, members, payments, QR check-in, workout plans, classes සහ branches manage කරන්න owner dashboard එකක්. Free එකෙන් පටන් ගන්න පුළුවන්.'
     ),
     tone: '#7a2e12',
   },
