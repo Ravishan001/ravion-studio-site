@@ -20,6 +20,15 @@ function listImages() {
 const nextConfig = {
   images: { unoptimized: true },
   env: { SITE_IMAGES: JSON.stringify(listImages()) },
+  // The blog is written and served by the SEO Engine. These rewrites show it at
+  // ravionstudio.com/blog on any host (Vercel or Cloudflare), with no Worker route needed.
+  async rewrites() {
+    const blog = 'https://seo-engine.ravionstudio1.workers.dev/b/ravion-studio';
+    return [
+      { source: '/blog', destination: blog },
+      { source: '/blog/:path*', destination: `${blog}/:path*` },
+    ];
+  },
 };
 
 export default nextConfig;
