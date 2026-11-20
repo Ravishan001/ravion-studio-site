@@ -7,7 +7,7 @@
 export const CONTACT = {
   whatsapp: '94773167853', // international format, no + or spaces
   whatsappDisplay: '+94 77 316 7853',
-  email: 'ravionstudio1@gmail.com', // change to hello@ravionstudio.com once Zoho is set up
+  email: 'hello@ravionstudio.com',
   location: 'Sri Lanka',
 };
 

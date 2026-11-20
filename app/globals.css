@@ -2809,7 +2809,7 @@ html[data-lang='si'] .hero h1 {
   pointer-events: none;
 }
 
-.chat-launcher svg rect {
+.chat-launcher svg rect:first-child {
   fill: var(--night);
 }
 
@@ -3362,11 +3362,15 @@ html[data-lang='si'] .hero h1 {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .chat-launcher {
+  /* Phone: just the logo, no orange circle behind it */
+  .chat-launcher,
+  .chat-launcher:hover {
     right: 14px;
     bottom: 14px;
-    padding: 6px;
-    min-height: 56px;
+    padding: 0;
+    min-height: 0;
+    background: transparent;
+    border-radius: 14px;
   }
 
   .chat-launcher span {
@@ -3374,8 +3378,9 @@ html[data-lang='si'] .hero h1 {
   }
 
   .chat-launcher svg {
-    width: 44px;
-    height: 44px;
+    width: 58px;
+    height: 58px;
+    display: block;
   }
 
   .est-bar {
