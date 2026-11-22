@@ -13,6 +13,7 @@ import {
   PROJECTS,
   INDUSTRIES,
 } from './site-config';
+import { serviceById } from './services/data';
 
 // Photos added to public/img/... (see next.config.mjs). Returns the file for a slot, or null.
 const SITE_IMAGES = (() => {
@@ -520,6 +521,11 @@ function Solutions({ t, lang, money, onEstimate, onPlans }) {
                   <button type="button" className="link-btn" onClick={() => onPlans(s.id)}>
                     {t.solutions.seePricing}
                   </button>
+                  {serviceById(s.id) && (
+                    <a className="sol-more" href={`/services/${serviceById(s.id).slug}`}>
+                      {lang === 'si' ? 'වැඩි විස්තර' : 'Learn more'}
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
@@ -1614,7 +1620,7 @@ export default function Page() {
             <p className="footer-line">{t.footer.line}</p>
           </div>
           <nav className="footer-nav" aria-label="Footer">
-            <a href="#solutions">{t.nav.solutions}</a>
+            <a href="/services">{t.nav.solutions}</a>
             <a href="#work">{t.nav.work}</a>
             <a href="#pricing">{t.nav.pricing}</a>
             <a href="#estimate">{t.nav.estimate}</a>
