@@ -95,6 +95,8 @@ export default function Privacy() {
         <p>
           WhatsApp: <a href={`https://wa.me/${CONTACT.whatsapp}`}>{CONTACT.whatsappDisplay}</a>
           <br />
+          Phone: <a href={`tel:+${CONTACT.call}`}>{CONTACT.callDisplay}</a>
+          <br />
           Email: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
           <br />
           {CONTACT.location}

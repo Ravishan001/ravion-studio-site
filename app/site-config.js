@@ -5,8 +5,10 @@
 // ─────────────────────────────────────────────────────────────
 
 export const CONTACT = {
-  whatsapp: '94773167853', // international format, no + or spaces
-  whatsappDisplay: '+94 77 316 7853',
+  whatsapp: '94769263377', // WhatsApp AI agent number — international format, no + or spaces
+  whatsappDisplay: '+94 76 926 3377',
+  call: '94773167853', // phone calls — international format, no + or spaces
+  callDisplay: '+94 77 316 7853',
   email: 'hello@ravionstudio.com',
   location: 'Sri Lanka',
 };

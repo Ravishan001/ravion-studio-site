@@ -1325,6 +1325,7 @@ function Contact({ t, lang }) {
             <a href={waLink()} target="_blank" rel="noopener">
               WhatsApp {CONTACT.whatsappDisplay}
             </a>
+            <a href={`tel:+${CONTACT.call}`}>Call {CONTACT.callDisplay}</a>
             <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
           </div>
         </div>
@@ -1622,6 +1623,7 @@ export default function Page() {
           </nav>
           <div className="footer-contact">
             <a href={waLink()} target="_blank" rel="noopener">WhatsApp {CONTACT.whatsappDisplay}</a>
+            <a href={`tel:+${CONTACT.call}`}>Call {CONTACT.callDisplay}</a>
             <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
           </div>
         </div>

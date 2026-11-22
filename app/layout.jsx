@@ -11,7 +11,7 @@ const ORG = {
   image: 'https://www.ravionstudio.com/og.png',
   description:
     'Software company in Sri Lanka building management systems, POS, mobile apps, websites, online stores and AI agents for businesses.',
-  telephone: '+' + CONTACT.whatsapp,
+  telephone: '+' + CONTACT.call,
   email: CONTACT.email,
   address: { '@type': 'PostalAddress', addressLocality: 'Kuliyapitiya', addressCountry: 'LK' },
   areaServed: ['LK', 'Worldwide'],

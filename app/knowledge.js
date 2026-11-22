@@ -60,6 +60,7 @@ OTHER FACTS
 ${EXTRA_FACTS}
 CONTACT
 - WhatsApp: ${CONTACT.whatsappDisplay} (fastest; replies usually within a day)
+- Phone calls: ${CONTACT.callDisplay}
 - Email: ${CONTACT.email}
 - Location: ${CONTACT.location}. We work remotely with clients anywhere.
 `;
