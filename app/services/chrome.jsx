@@ -99,6 +99,7 @@ export function SvcFooter() {
       <div className="wrap footer-bottom">
         <p>© {new Date().getFullYear()} Ravion Studio, Kuliyapitiya, {CONTACT.location}</p>
         <a href="/privacy">Privacy policy</a>
+        <a href="/ravishan-tennakoon/">Founder: Ravishan Tennakoon</a>
       </div>
     </footer>
   );

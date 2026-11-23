@@ -193,6 +193,7 @@ export const T = {
       line: 'Software, apps, websites and AI agents for businesses.',
       rights: 'Ravion Studio',
       privacy: 'Privacy policy',
+      founder: 'Founder: Ravishan Tennakoon',
     },
   },
 
@@ -387,6 +388,7 @@ export const T = {
       line: 'Businesses වලට software, apps, websites සහ AI agents.',
       rights: 'Ravion Studio',
       privacy: 'Privacy policy',
+      founder: 'Founder: Ravishan Tennakoon',
     },
   },
 };

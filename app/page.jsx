@@ -1638,6 +1638,7 @@ export default function Page() {
             © {new Date().getFullYear()} {t.footer.rights}, {CONTACT.location}
           </p>
           <a href="/privacy">{t.footer.privacy}</a>
+          <a href="/ravishan-tennakoon/">{t.footer.founder}</a>
         </div>
       </footer>
       <ChatWidget t={t} lang={lang} money={money} />
