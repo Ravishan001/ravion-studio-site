@@ -25,6 +25,9 @@ const nextConfig = {
   async rewrites() {
     const blog = 'https://seo-engine.ravionstudio1.workers.dev/b/ravion-studio';
     return [
+      // Founder portfolio: a static page in public/ravishan-tennakoon/ (Cloudflare serves it directly;
+      // this rewrite makes the same URL work in `next dev` too).
+      { source: '/ravishan-tennakoon', destination: '/ravishan-tennakoon/index.html' },
       { source: '/blog', destination: blog },
       { source: '/blog/:path*', destination: `${blog}/:path*` },
     ];

@@ -8,6 +8,7 @@ export default function sitemap() {
     { url: `${base}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     ...SERVICES.map((s) => ({ url: `${base}/services/${s.slug}`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 })),
     { url: `${base}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${base}/ravishan-tennakoon/`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ];
 }
